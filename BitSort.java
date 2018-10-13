@@ -12,10 +12,9 @@ public class BitSort {
 
 	
 	/**
-	 * @param arr The input array to be sorted
-	 * @param limit the max value in range
-	 * @return The sorted array.
-	 * The complexity of this method is O(n)
+	 * @param arr - The input array to be sorted
+	 * @param limit - The max value in range
+	 * @return - The sorted array.
 	 */
 	public static int[] sort(int[] arr,int limit) {
 		BitSet bitMap = new BitSet(limit+1);
