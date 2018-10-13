@@ -18,7 +18,7 @@ public class BitSort {
 	 */
 	public static int[] sort(int[] arr,int limit) {
 		BitSet bitMap = new BitSet(limit+1);
-		IntStream.of(arr).forEach(num -> setBit(bitMap,num));
+		IntStream.of(arr).forEach(num -> setBit(bitMap,num,limit));
 		int j = 0;
 		for (int i = bitMap.nextSetBit(0); i >= 0; i = bitMap.nextSetBit(i+1)) {
 			if (i != -1) { arr[j] = i; j++; }
@@ -27,11 +27,10 @@ public class BitSort {
 		return arr;
 	}
 
-	private static void setBit(BitSet bitMap, int num) {
-		if(bitMap.get(num)) { /** If the bit is already set **/
+	private static void setBit(BitSet bitMap, int num, int limit) {
+		if(bitMap.get(num) || num < 0 || num > limit) { /** If the bit is already set **/
 			throw new IllegalArgumentException("The input has duplicate records.");
 		}
 		bitMap.set(num);
 	}
-
 }
